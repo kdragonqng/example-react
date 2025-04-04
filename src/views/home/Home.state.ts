@@ -24,4 +24,18 @@ export class HomeState extends ComponentState {
             me.isReady = true;
         }
     }
+
+    public async logout(): Promise<boolean> {
+        const me = this;
+        me.loadingService.show();
+        const response = await me.authService.logout();
+        me.loadingService.hide();
+        if (ObjectHelper.hasApiError(response)) {
+            me.alertService.addAlert(me.alertType.error.toString(), (response as SystemError).message);
+        }
+        else {
+            return true;
+        }
+        return false;
+    }
 }

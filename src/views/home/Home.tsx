@@ -11,6 +11,7 @@ function Home(): React.JSX.Element {
         return (
             <div className="home-view">
                 {language.label.hi}
+                <button type="button" onClick={() => { elHook.logout() }}>{language.auth.logout}</button>
             </div>
         );
     }

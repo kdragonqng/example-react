@@ -28,6 +28,7 @@ export interface Auth {
     error002: string;
     error003: string;
     error004: string;
+    logout: string;
 }
 
 export interface ErrorMessage {

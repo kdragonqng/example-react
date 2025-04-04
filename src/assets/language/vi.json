@@ -42,6 +42,7 @@
     "error001": "Tên đăng nhập hoặc mật khẩu không đúng!",
     "error002": "Tài khoản của bạn đã bị khóa!",
     "error003": "Mật khẩu không khớp!",
-    "error004": "Thông tin người dùng không tồn tại!"
+    "error004": "Thông tin người dùng không tồn tại!",
+    "logout": "Đăng xuất"
   }
 }
