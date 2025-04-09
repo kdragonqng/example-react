@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import { AppRouterName } from '../../AppRouter';
 import { LoginState } from './Login.state';
+import { AnyType } from 'one-frontend-framework';
 
 /** For login view action */
 function LoginHook() {
     const [componentState, setcomponentState] = useState(new LoginState());
+
+    function handleFormInputChanged(target: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | AnyType): void {
+        const pageState: LoginState = componentState.copy();
+        pageState.handleFormInputChanged(target);
+        setcomponentState(pageState);
+    }
 
     /**
      * Login action
@@ -35,7 +42,8 @@ function LoginHook() {
     }, []);
     return {
         componentState,
-        login
+        login,
+        handleFormInputChanged
     };
 }
 

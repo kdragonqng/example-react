@@ -15,18 +15,18 @@ function Login(): React.JSX.Element {
                 <input
                     type="text"
                     placeholder="Enter Username"
-                    name="uname" required
+                    name="model.username" required
                     value={elHook.componentState.model.username}
-                    onChange={(e) => { elHook.componentState.handleFormInputChanged(e.target); }}
+                    onChange={(e) => { elHook.handleFormInputChanged(e.target); }}
                 />
 
                 <label htmlFor="psw"><b>{language.auth.password}</b></label>
                 <input
                     type="password"
                     placeholder="Enter Password"
-                    name="psw" required
+                    name="model.password" required
                     value={elHook.componentState.model.password}
-                    onChange={(e) => { elHook.componentState.handleFormInputChanged(e.target); }}
+                    onChange={(e) => { elHook.handleFormInputChanged(e.target); }}
                 />
 
                 <button type="button" onClick={() => { elHook.login() }}>{language.auth.login}</button>
