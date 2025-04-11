@@ -9,7 +9,7 @@ function Home(): React.JSX.Element {
     const elHook = HomeHook();
     if (elHook.componentState.isReady) {
         return (
-            <div className="home-view">
+            <div className="home-view bg-[#07B07B] min-h-screen" >
                 {language.label.hi}
                 <button type="button" onClick={() => { elHook.logout() }}>{language.auth.logout}</button>
             </div>
