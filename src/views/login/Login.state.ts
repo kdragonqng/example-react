@@ -6,9 +6,12 @@ import { LoginModel } from './Login.model';
 import { LoginRequest } from '../../services/requestObject/auth.Request';
 import { SystemError } from '../../common/services/baseService';
 import { AppRouterName } from '../../AppRouter';
+import { StorageService } from '../../common/services/storageService';
+import { StorageKey } from '../../common/constants/storageKey';
 
 export class LoginState extends ComponentState {
     public authService = container.resolve(AuthService);
+    public storageService = container.resolve(StorageService);
     public model = new LoginModel();
     public modelPropName = 'model';
 
@@ -23,6 +26,16 @@ export class LoginState extends ComponentState {
             me.model.password = 'abcd1234';
             me.isReady = true;
         }
+        const ready = await me.checkReadyLogin();
+        if (!ready) {
+            window.location.href = AppRouterName.onboard;
+        }
+    }
+
+    public async checkReadyLogin(): Promise<boolean> {
+        const me = this;
+        const alo = await me.storageService.getObject<boolean>(StorageKey.hasVisited) as boolean;
+        return alo;
     }
 
     public async login(): Promise<boolean> {

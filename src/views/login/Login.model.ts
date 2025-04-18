@@ -4,6 +4,7 @@ import { BaseModel, ErrorModel } from '../../common/types/baseModel';
 export class LoginModel extends BaseModel {
     public username: string = '';
     public password: string = '';
+    public hasVisited: boolean = false;
 
     public isValid(): boolean {
         const me = this;

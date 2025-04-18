@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { ProtectedRoute } from './AppProtectedRoute ';
+import { ProtectedRoute } from './AppProtectedRoute';
 import Login from './views/login/Login';
 import Home from './views/home/Home';
 import Onboard from './views/onboard/Onboard';
@@ -14,7 +14,7 @@ export class AppRouterName {
 export const AppRouter = [
   {
     path: AppRouterName.noMatch,
-    element: <Navigate to={AppRouterName.onboard} replace />,
+    element: <Navigate to={AppRouterName.home} replace />,
   },
   {
     path: AppRouterName.home,

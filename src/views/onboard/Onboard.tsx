@@ -12,11 +12,22 @@ function Onboard(): React.JSX.Element {
 
     if (elHook.componentState.isReady) {
         return (
-            <div className="onboard-view flex-1 bg-[#07B07B] items-center justify-center flex-col" >
-                <img src={logo} />
-                <text className='text-white mt-3 text-2xl font-bold'>
-                    Shopper
-                </text>
+            <div className="onboard-view min-h-screen bg-[#07B07B] flex flex-col justify-between items-center px-6 py-10">
+                {/* Nội dung trung tâm */}
+                <div className="flex-1 flex flex-col items-center justify-center">
+                    <img src={logo} alt="Logo" />
+                    <span className="text-white mt-3 text-2xl font-bold">Shopper</span>
+                </div>
+
+                {/* Nút ở dưới cùng */}
+                <button
+                    onClick={() => {
+                        elHook.handleLogin();
+                    }}
+                    className="w-full bg-white text-[#07B07B] font-semibold py-3 rounded-xl"
+                >
+                    Get Started
+                </button>
             </div>
         );
     }

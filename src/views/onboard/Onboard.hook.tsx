@@ -1,11 +1,20 @@
 import { useEffect, useState } from 'react';
 // import { AppRouterName } from '../../AppRouter';
 import { OnboardState } from './Onboard.state';
+import { AppRouterName } from '../../AppRouter';
+import { container } from 'tsyringe';
+import { StorageService } from '../../common/services/storageService';
+import { StorageKey } from '../../common/constants/storageKey';
 
 function OnboardHook() {
     const [componentState, setcomponentState] = useState(new OnboardState());
 
+    const storageService = container.resolve(StorageService);
 
+    function handleLogin() {
+        storageService.saveObject(StorageKey.hasVisited, true);
+        window.location.href = AppRouterName.login;
+    }
     /**
      * Load page
      */
@@ -21,6 +30,7 @@ function OnboardHook() {
     }, []);
     return {
         componentState,
+        handleLogin,
     };
 }
 
