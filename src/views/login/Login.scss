@@ -1,3 +1,14 @@
-.login-view{
+.login-view {
+  .login-logo {
+    flex-direction: row;
     display: flex;
+  }
+  .login-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
 }
